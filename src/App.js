@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import { connect} from 'react-redux';
+import './App.scss';
+import { NavBar } from './Components';
+import { Home, LeaderBoard, NewQuestion} from './Pages'
+import { Route} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  
+  render() {
+    return (
+      <div className="App">
+        <NavBar />
+        {/* <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/add">
+          <NewQuestion />
+        </Route>
+        <Route path="/leaderboard">
+          <LeaderBoard />
+        </Route> */}
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state, props) => {
+  return {
+
+  }
+}
+
+export default connect()(App);
