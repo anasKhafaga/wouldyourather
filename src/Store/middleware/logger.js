@@ -1,8 +1,8 @@
 export default store => next => action => {
   console.group(action.type);
-  console.log(`the action is: ${action}`)
+  console.log(action)
   const returnedValue = next(action);
-  console.log(`new state is: ${store.getState}`);
+  console.log(store.getState());
   console.groupEnd();
   return returnedValue;
 };

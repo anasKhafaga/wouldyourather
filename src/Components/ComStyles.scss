@@ -28,16 +28,18 @@ ul {
 
 .nav-bar-avatar {
   display: flex;
-  // justify-content: ;
+  color: white;
   width: 50%;
   align-items: center;
   column-gap: 1em;
-  
+
   img {
     width: 2em;
     height: 2em;
+    border-radius: 50%;
   }
-  div{
+
+  div {
     width: 10%;
   }
 }
@@ -46,4 +48,61 @@ ul {
   color: white;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  column-gap: 1em;
+}
+
+.hp-title {
+  display: flex;
+  column-gap: 2em;
+
+  p {
+    cursor: pointer;
+  }
+}
+
+.q-card-p {
+  padding: 1em;
+  border: 3px black solid;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.q-card {
+  display: flex;
+  margin-top: 1em;
+  column-gap: 2em;
+
+  img {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+input {
+  display: block;
+}
+
+button {
+  display: block;
+}
+
+.bar-empty {
+  width: 100%;
+  background-color: gainsboro;
+  height: 2em;
+}
+
+.bar-filled {
+  background-color: blueviolet;
+  height: 2em;
+  color: white;
+}
+
+.chosen {
+  border: 1px blueviolet solid
 }
