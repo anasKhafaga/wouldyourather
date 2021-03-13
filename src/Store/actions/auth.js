@@ -29,7 +29,8 @@ const saveQAns = (user) => {
   return {
     type: SAVE_Q_ANS,
     qid: user.qid,
-    answer: user.answer
+    answer: user.answer,
+    authUser: user.authedUser,
   };
 };
 

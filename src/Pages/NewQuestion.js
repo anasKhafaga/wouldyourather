@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import { handleSaveQ } from '../Store/actions/questions';
 
 class NewQuestion extends Component {
@@ -13,6 +13,9 @@ class NewQuestion extends Component {
   }
 
   render() {
+    if (this.props.redirect) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="q-card-p">
         <div>Create New Question</div>
@@ -40,7 +43,7 @@ class NewQuestion extends Component {
 
 export default withRouter(
   connect(
-    (state) => ({ users: state.users, user: state.authUser }),
+    (state) => ({ users: state.users, user: state.authUser, redirect: state.redirect }),
     (dispatch) => ({
       saveQ: (q) =>
         dispatch(handleSaveQ(q)),

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleGetQuestions} from '../Store/actions/questions'
-import {List } from '../Components'
+import { List } from '../Components'
+import { stopRedirect } from '../Store/actions/redirect';
 
 class Home extends Component {
 
   state = {
-    answered: true
+    answered: false
   }
 
   changeView = (condition) => {
@@ -41,6 +42,7 @@ class Home extends Component {
   
   componentDidMount() {
     this.props.getQs();
+    this.props.stoptheRedirect();
   }
   
   render() {
@@ -52,8 +54,8 @@ class Home extends Component {
     return (
       <div className="hp">
         <div className="hp-title">
-          <p onClick={this.changeView.bind(this, 'ans')}>Answered Questions</p>
           <p onClick={this.changeView.bind(this, 'notAns')}>Unanswered Questions</p>
+          <p onClick={this.changeView.bind(this, 'ans')}>Answered Questions</p>
         </div>
         {this.state.answered ? (
           <List questions={answeredQs} />
@@ -71,8 +73,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getQs: ()=> dispatch(handleGetQuestions())
+  getQs: ()=> dispatch(handleGetQuestions()),
+  stoptheRedirect: () => dispatch(stopRedirect()),
 })
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

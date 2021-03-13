@@ -22,7 +22,6 @@ const navItems = [
 class NavBar extends Component {
   
   render() {
-    console.log(this.props.user)
     return (
       <div className="nav-bar">
         <ul>
